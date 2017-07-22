@@ -1,1 +1,1 @@
-sudo mount.ceph node2.ceph.wator.xyz:6831:/ /home/ma/cephfs_root/ -o name=admin,secretfile=/home/ma/admin.key
+sudo mount.ceph node2.ceph.wator.xyz:6789:/ /home/ma/cephfs_root/ -o name=admin,secretfile=/home/ma/admin.key
