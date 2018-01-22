@@ -1,0 +1,11 @@
+[Unit]
+Description=OSD 1 start Service
+After=syslog.target
+
+[Service]
+Type=simple
+ExecStart= /usr/bin/ceph-osd -i 1 -f
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
