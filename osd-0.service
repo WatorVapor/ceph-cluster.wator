@@ -1,10 +1,10 @@
 [Unit]
-Description=OSD start Service
+Description= Ceph OSD 0 start Service
 After=syslog.target
 
 [Service]
 Type=simple
-ExecStart= /usr/bin/ceph-osd -i 0 -d
+ExecStart= /usr/bin/ceph-osd -i 0 -f
 Restart=always
 
 [Install]
