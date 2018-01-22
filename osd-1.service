@@ -1,5 +1,5 @@
 [Unit]
-Description=OSD 1 start Service
+Description=Ceph OSD 1 start Service
 After=syslog.target
 
 [Service]
