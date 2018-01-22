@@ -4,7 +4,7 @@ After=syslog.target
 
 [Service]
 Type=simple
-ExecStart= ceph-osd -i 0 -d
+ExecStart= /usr/bin/ceph-osd -i 0 -d
 Restart=always
 
 [Install]
