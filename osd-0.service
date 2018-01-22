@@ -1,0 +1,11 @@
+[Unit]
+Description=OSD start Service
+After=syslog.target
+
+[Service]
+Type=simple
+ExecStart= 
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
