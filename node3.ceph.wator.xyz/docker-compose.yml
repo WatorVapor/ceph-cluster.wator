@@ -9,26 +9,28 @@ services:
       - /ceph/storage1/mon:/var/lib/ceph
     command: mgr
     restart: 'no'
+  
   osd1.node3.ceph.wator.xyz:
     image: ceph/daemon
     network_mode: "host"
     volumes:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/conf/ganesha:/etc/ganesha
-      - /ceph/storage1/mon/bootstrap-osd/ceph.keyring:/var/lib/ceph/bootstrap-osd/ceph.keyring
-      - /ceph/storage1/osd:/var/lib/ceph
+      - /ceph/storage1/mon:/var/lib/ceph
+      - /ceph/storage1/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
     command: osd
     restart: 'no'
+
   osd2.node3.ceph.wator.xyz:
     image: ceph/daemon
     network_mode: "host"
     volumes:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/conf/ganesha:/etc/ganesha
-      - /ceph/storage1/mon/bootstrap-osd/ceph.keyring:/var/lib/ceph/bootstrap-osd/ceph.keyring
-      - /ceph/storage2/osd:/var/lib/ceph
+      - /ceph/storage1/mon:/var/lib/ceph
+      - /ceph/storage2/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
     command: osd
@@ -40,9 +42,22 @@ services:
     volumes:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/conf/ganesha:/etc/ganesha
-      - /ceph/storage1/mon/bootstrap-osd/ceph.keyring:/var/lib/ceph/bootstrap-osd/ceph.keyring
-      - /ceph/storage3/osd:/var/lib/ceph
+      - /ceph/storage1/mon:/var/lib/ceph
+      - /ceph/storage3/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
     command: osd
+    restart: 'no'
+
+  mds.node3.ceph.wator.xyz:
+    image: ceph/daemon
+    network_mode: "host"
+    volumes:
+      - /ceph/conf/etc:/etc/ceph
+      - /ceph/conf/ganesha:/etc/ganesha
+      - /ceph/storage1/mon:/var/lib/ceph
+    environment:
+      - MDS_NAME=mds.node3.ceph.wator.xyz
+      - CEPHFS_CREATE=1
+    command: mgr
     restart: 'no'
