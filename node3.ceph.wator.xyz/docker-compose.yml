@@ -6,6 +6,7 @@ services:
     volumes:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/conf/ganesha:/etc/ganesha
+      - /ceph/storage1/mon/bootstrap-osd/ceph.keyring:/var/lib/ceph/bootstrap-osd/ceph.keyring
       - /ceph/storage1/osd:/var/lib/ceph
     environment:
       - OSD_TYPE=directory
