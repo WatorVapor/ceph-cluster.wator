@@ -4,8 +4,8 @@ services:
     image: ceph/daemon
     network_mode: "host"
     volumes:
-      - ./etc/ceph:/etc/ceph
-      - ./etc/ganesha:/etc/ganesha
+      - /ceph/conf/etc:/etc/ceph
+      - /ceph/conf/ganesha:/etc/ganesha
       - /ceph/storage1/mon:/var/lib/ceph
     environment:
       - MON_NAME=mon.node3.ceph.wator.xyz
