@@ -1,15 +1,14 @@
 version: '3'
 services:
-  wator-nginx:
-    build: nginx-wator
+  mon.node3.ceph.wator.xyz:
+    image: ceph/daemon
     network_mode: "host"
     volumes:
-      - /watorvapor/app_www/services/nginx-wator/sites-available:/etc/nginx/sites-available
-      - /watorvapor/app_www/services/nginx-wator/tcp.conf.d:/etc/nginx/tcp.conf.d
-      - /watorvapor/cert:/etc/cert
-      - /watorvapor/app_www/www_root:/www_root
-      - /watorvapor/autogen:/autogen
-      - /watorvapor/log/nginx:/log
-    command: nginx
+      - ./etc/ceph:/etc/ceph
+      - /ceph/storage1/mon:/var/lib/ceph
+    environment:
+      - MON_IP=2400:2412:13e0:9d00:2ce:39ff:fece:132
+      - CEPH_PUBLIC_NETWORK=2400:2412:13e0:9d00:2ce:39ff:fece:132
+    command: mon
     restart: always
  
