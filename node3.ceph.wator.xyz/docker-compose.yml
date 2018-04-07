@@ -10,9 +10,9 @@ services:
     environment:
       - IP_LEVEL=6
       - MON_NAME=node3.ceph.wator.xyz
-      - MON_IP=2400:2412:13e0:9d00:2ce:39ff:fece:132
-      - CEPH_PUBLIC_NETWORK=2400:2412:13e0:9d00::/64
-      - CEPH_CLUSTER_NETWORK=2400:2412:13e0:9d00::/64
+      - MON_IP=192.168.0.10
+      - CEPH_PUBLIC_NETWORK=192.168.0.10/24
+      - CEPH_CLUSTER_NETWORK=192.168.0.10/24
     command: mon
     restart: 'no'
  
