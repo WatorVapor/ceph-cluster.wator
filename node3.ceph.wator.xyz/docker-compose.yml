@@ -8,7 +8,7 @@ services:
       - /ceph/conf/ganesha:/etc/ganesha
       - /ceph/storage1/mon:/var/lib/ceph
     environment:
-      - MON_NAME=mon.node3.ceph.wator.xyz
+      - MON_NAME=node3.ceph.wator.xyz
       - NETWORK_AUTO_DETECT=6
     command: mon
     restart: always
