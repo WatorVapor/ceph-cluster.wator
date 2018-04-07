@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   mon.node3.ceph.wator.xyz:
     image: ceph/daemon
