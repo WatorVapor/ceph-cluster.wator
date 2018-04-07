@@ -12,4 +12,28 @@ services:
       - OSD_TYPE=directory
     command: osd
     restart: 'no'
+  osd2.node3.ceph.wator.xyz:
+    image: ceph/daemon
+    network_mode: "host"
+    volumes:
+      - /ceph/conf/etc:/etc/ceph
+      - /ceph/conf/ganesha:/etc/ganesha
+      - /ceph/storage1/mon/bootstrap-osd/ceph.keyring:/var/lib/ceph/bootstrap-osd/ceph.keyring
+      - /ceph/storage2/osd:/var/lib/ceph
+    environment:
+      - OSD_TYPE=directory
+    command: osd
+    restart: 'no'
  
+  osd3.node3.ceph.wator.xyz:
+    image: ceph/daemon
+    network_mode: "host"
+    volumes:
+      - /ceph/conf/etc:/etc/ceph
+      - /ceph/conf/ganesha:/etc/ganesha
+      - /ceph/storage1/mon/bootstrap-osd/ceph.keyring:/var/lib/ceph/bootstrap-osd/ceph.keyring
+      - /ceph/storage3/osd:/var/lib/ceph
+    environment:
+      - OSD_TYPE=directory
+    command: osd
+    restart: 'no'
