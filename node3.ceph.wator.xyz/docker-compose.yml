@@ -1,5 +1,15 @@
 version: '2'
 services:
+  mgr.node3.ceph.wator.xyz:
+    image: ceph/daemon
+    network_mode: "host"
+    volumes:
+      - /ceph/conf/etc:/etc/ceph
+      - /ceph/conf/ganesha:/etc/ganesha
+      - /ceph/storage1/mon:/var/lib/ceph
+    environment:
+    command: mgr
+    restart: 'no'
   osd1.node3.ceph.wator.xyz:
     image: ceph/daemon
     network_mode: "host"
