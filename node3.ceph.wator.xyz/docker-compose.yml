@@ -9,6 +9,7 @@ services:
       - /ceph/storage1/mon:/var/lib/ceph
     environment:
       - MON_NAME=mon.node3.ceph.wator.xyz
+      - NETWORK_AUTO_DETECT=6
       - MON_IP=2400:2412:13e0:9d00:2ce:39ff:fece:132
       - CEPH_PUBLIC_NETWORK=2400:2412:13e0:9d00:2ce:39ff:fece:132
     command: mon
