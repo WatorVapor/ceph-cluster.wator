@@ -1,6 +1,6 @@
 version: '2'
 services:
-  mon.node2.ceph.wator.xyz:
+  mon.ceph.wator.xyz:
     image: ceph/daemon
     network_mode: "host"
     volumes:
