@@ -5,7 +5,7 @@ services:
     network_mode: "host"
     volumes:
       - /ceph/conf/etc:/etc/ceph
-      - /ceph/storage1/mon2:/var/lib/ceph
+      - /ceph/storage1/mon:/var/lib/ceph
       - /ceph/storage1/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
@@ -17,7 +17,7 @@ services:
     network_mode: "host"
     volumes:
       - /ceph/conf/etc:/etc/ceph
-      - /ceph/storage1/mon2:/var/lib/ceph
+      - /ceph/storage1/mon:/var/lib/ceph
       - /ceph/storage2/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
@@ -29,7 +29,7 @@ services:
     network_mode: "host"
     volumes:
       - /ceph/conf/etc:/etc/ceph
-      - /ceph/storage1/mon2:/var/lib/ceph
+      - /ceph/storage1/mon:/var/lib/ceph
       - /ceph/storage3/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
