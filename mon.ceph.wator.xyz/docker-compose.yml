@@ -7,5 +7,8 @@ services:
       - /ceph/conf/etc:/etc/ceph
       - ./ceph.conf:/etc/ceph/ceph.conf
       - /ceph/storage1/mon:/var/lib/ceph
+    environment:
+      - CEPH_PUBLIC_NETWORK=2400:2412:13e0:9d00::/64
+      - CEPH_CLUSTER_NETWORK=2400:2412:13e0:9d00::/64
     command: mon
     restart: 'no'
