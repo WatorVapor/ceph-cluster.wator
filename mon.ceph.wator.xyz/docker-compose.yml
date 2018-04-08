@@ -5,6 +5,7 @@ services:
     network_mode: "host"
     volumes:
       - /ceph/conf/etc:/etc/ceph
+      - ./ceph.conf:/etc/ceph/ceph.conf
       - /ceph/storage1/mon:/var/lib/ceph
     environment:
       - MON_NAME=node3.ceph.wator.xyz
