@@ -9,7 +9,7 @@ services:
       - /ceph/storage1/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
-    command: MON_HEALTH
+    command: osd
     restart: 'no'
 
   osd2.node2.ceph.wator.xyz:
