@@ -36,3 +36,14 @@ services:
     command: osd
     restart: 'no'
 
+  mds.node2.ceph.wator.xyz:
+    image: ceph/daemon
+    network_mode: "host"
+    volumes:
+      - /ceph/conf/etc:/etc/ceph
+      - /ceph/conf/ganesha:/etc/ganesha
+      - /ceph/storage1/mon:/var/lib/ceph
+    environment:
+      - MDS_NAME=mds.node2.ceph.wator.xyz
+    command: mds
+    restart: 'no'
