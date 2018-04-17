@@ -11,7 +11,7 @@ services:
     environment:
       - OSD_TYPE=directory
     command: osd
-    restart: 'no'
+    restart: 'always'
 
   osd2.node3.ceph.wator.xyz:
     image: ceph/daemon
@@ -24,7 +24,7 @@ services:
     environment:
       - OSD_TYPE=directory
     command: osd
-    restart: 'no'
+    restart: 'always'
  
   osd3.node3.ceph.wator.xyz:
     image: ceph/daemon
@@ -37,7 +37,7 @@ services:
     environment:
       - OSD_TYPE=directory
     command: osd
-    restart: 'no'
+    restart: 'always'
 
   mds.node3.ceph.wator.xyz:
     image: ceph/daemon
@@ -50,4 +50,4 @@ services:
       - MDS_NAME=mds.node3.ceph.wator.xyz
       - CEPHFS_CREATE=1
     command: mds
-    restart: 'no'
+    restart: 'always'
