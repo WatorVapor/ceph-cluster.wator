@@ -6,6 +6,7 @@ services:
     volumes:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/storage1/mon:/var/lib/ceph
+      - /ceph/storage1/log:/var/log/ceph/
     environment:
       - MDS_NAME=mds3.node3.ceph.wator.xyz
     command: mds
