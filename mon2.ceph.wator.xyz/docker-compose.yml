@@ -5,7 +5,7 @@ services:
     network_mode: "host"
     volumes:
       - /ceph/conf/etc:/etc/ceph
-      - /ceph/storage1/mon:/var/lib/ceph
+      - /ceph/mds/mon:/var/lib/ceph
     environment:
       - MON_NAME=node2.ceph.wator.xyz
       - MON_IP=[2400:2412:13e0:9d00:baae:edff:fe77:4c71]
