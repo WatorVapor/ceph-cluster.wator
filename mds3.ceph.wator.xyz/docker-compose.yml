@@ -1,13 +1,13 @@
 version: '2'
 services:
-  mds.node3.ceph.wator.xyz:
+  mds3.node3.ceph.wator.xyz:
     image: ceph/daemon
     network_mode: "host"
     volumes:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/storage1/mon:/var/lib/ceph
     environment:
-      - MDS_NAME=mds.node3.ceph.wator.xyz
+      - MDS_NAME=mds3.node3.ceph.wator.xyz
       - CEPHFS_CREATE=1
     command: mds
     restart: 'always'
