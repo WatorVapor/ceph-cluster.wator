@@ -7,6 +7,6 @@ services:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/storage1/mon:/var/lib/ceph
     environment:
-      - MDS_NAME=mds3.node3.ceph.wator.xyz
+      - MDS_NAME=a-mds3.node3.ceph.wator.xyz
     command: mds
     restart: 'always'
