@@ -7,4 +7,4 @@ services:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/storage1/mon:/var/lib/ceph
     command: mgr
-    restart: 'no'
+    restart: 'always'
