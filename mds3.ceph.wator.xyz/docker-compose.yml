@@ -1,0 +1,49 @@
+version: '2'
+services:
+  osd1.node3.ceph.wator.xyz:
+    image: ceph/daemon
+    network_mode: "host"
+    volumes:
+      - /ceph/conf/etc:/etc/ceph
+      - /ceph/storage1/mon:/var/lib/ceph
+      - /ceph/storage1/osd:/var/lib/ceph/osd
+    environment:
+      - OSD_TYPE=directory
+    command: osd
+    restart: 'always'
+
+  osd2.node3.ceph.wator.xyz:
+    image: ceph/daemon
+    network_mode: "host"
+    volumes:
+      - /ceph/conf/etc:/etc/ceph
+      - /ceph/storage1/mon:/var/lib/ceph
+      - /ceph/storage2/osd:/var/lib/ceph/osd
+    environment:
+      - OSD_TYPE=directory
+    command: osd
+    restart: 'always'
+ 
+  osd3.node3.ceph.wator.xyz:
+    image: ceph/daemon
+    network_mode: "host"
+    volumes:
+      - /ceph/conf/etc:/etc/ceph
+      - /ceph/storage1/mon:/var/lib/ceph
+      - /ceph/storage3/osd:/var/lib/ceph/osd
+    environment:
+      - OSD_TYPE=directory
+    command: osd
+    restart: 'always'
+
+  mds.node3.ceph.wator.xyz:
+    image: ceph/daemon
+    network_mode: "host"
+    volumes:
+      - /ceph/conf/etc:/etc/ceph
+      - /ceph/storage1/mon:/var/lib/ceph
+    environment:
+      - MDS_NAME=mds.node3.ceph.wator.xyz
+      - CEPHFS_CREATE=1
+    command: mds
+    restart: 'always'
