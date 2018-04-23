@@ -10,9 +10,9 @@ services:
       - /ceph/storage1/log:/var/log/ceph/
       - /ceph/storage1/osd:/var/lib/ceph/osd
     environment:
-      - OSD_TYPE=directory_single
+      - OSD_TYPE=directory
       - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
-    command: osd
+    command: osd create
     restart: 'always'
 
   osd2.node3.ceph.wator.xyz:
@@ -24,9 +24,9 @@ services:
       - /ceph/storage1/log:/var/log/ceph/
       - /ceph/storage2/osd:/var/lib/ceph/osd
     environment:
-      - OSD_TYPE=directory_single
+      - OSD_TYPE=directory
       - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
-    command: osd
+    command: osd create
     restart: 'always'
  
   osd3.node3.ceph.wator.xyz:
@@ -38,7 +38,7 @@ services:
       - /ceph/storage1/log:/var/log/ceph/
       - /ceph/storage3/osd:/var/lib/ceph/osd
     environment:
-      - OSD_TYPE=directory_single
+      - OSD_TYPE=directory
       - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
-    command: osd
+    command: osd create
     restart: 'always'
