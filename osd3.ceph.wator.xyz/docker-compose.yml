@@ -5,6 +5,7 @@ services:
     network_mode: "host"
     volumes:
       - /ceph/conf/etc:/etc/ceph
+      - /ceph/conf/ganesha:/etc/ganesha
       - /ceph/storage1/mon:/var/lib/ceph
       - /ceph/storage1/log:/var/log/ceph/
       - /ceph/storage1/osd:/var/lib/ceph/osd
