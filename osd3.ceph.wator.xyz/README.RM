@@ -1,0 +1,8 @@
+7、为此osd节点创建一个crush map
+
+ceph osd crush add-bucket node1 host
+
+8、把node1 bucket 移到 root bucket下
+
+ceph osd crush move node1 root=default
+
