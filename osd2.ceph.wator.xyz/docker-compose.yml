@@ -5,20 +5,12 @@ services:
     network_mode: "host"
     volumes:
       - /ceph/conf/etc:/etc/ceph
-      - /ceph/mds/mon:/var/lib/ceph
+      - /ceph/conf/ganesha:/etc/ganesha
+      - /ceph/storage1/mon:/var/lib/ceph
+      - /ceph/storage1/log:/var/log/ceph/
       - /ceph/storage1/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
-    command: osd
-    restart: 'yes'
-
-   mds.node2.ceph.wator.xyz:
-    image: ceph/daemon
-    network_mode: "host"
-    volumes:
-      - /ceph/conf/etc:/etc/ceph
-      - /ceph/mds/mon:/var/lib/ceph
-    environment:
-      - MDS_NAME=mds.node2.ceph.wator.xyz
-    command: mds
-    restart: 'yes'
+      - HOSTNAME=[2400:2412:13e0:9d00:baae:edff:fe77:4c71]
+   command: osd
+    restart: 'always'
