@@ -14,4 +14,4 @@ services:
       - CEPH_PUBLIC_NETWORK=2400:2412:13e0:9d00::/64
       - CEPH_CLUSTER_NETWORK=2400:2412:13e0:9d00::/64
     command: mon
-    restart: 'no'
+    restart: 'always'
