@@ -6,3 +6,8 @@ ceph osd crush add-bucket node1 host
 
 ceph osd crush move node1 root=default
 
+9、给node1 bucket 增加一个设备
+
+ceph osd crush add osd.0 1.0 host=node1
+
+
