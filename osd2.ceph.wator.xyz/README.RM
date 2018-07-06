@@ -1,0 +1,1 @@
+ceph osd crush rm-device-class osd.0
