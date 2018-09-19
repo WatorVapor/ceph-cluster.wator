@@ -44,13 +44,13 @@ services:
           cpus: '0.1'
           memory: 256M    
  
-  osd3.node3.ceph.wator.xyz:
+  osd3:
     image: ceph/daemon
     hostname: node4.ceph.wator.xyz
     volumes:
       - /ceph/master/etc:/etc/ceph
       - /ceph/master/mon:/var/lib/ceph
-      - /ceph/storage2/osd:/var/lib/ceph/osd
+      - /ceph/storage3/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
       - HOSTNAME=[2400:2412:13e0:9d00:8639:beff:fe67:dcc9]
