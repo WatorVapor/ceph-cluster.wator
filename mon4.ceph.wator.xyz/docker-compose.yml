@@ -4,6 +4,7 @@ services:
     image: ceph/daemon
     domainname: ceph.wator.xyz
     hostname: node4
+    ipc: host
     volumes:
       - /ceph/master/etc:/etc/ceph
       - /ceph/master/ganesha:/etc/ganesha
@@ -30,6 +31,7 @@ services:
     image: ceph/daemon
     domainname: ceph.wator.xyz
     hostname: node4
+    ipc: host
     volumes:
       - /ceph/master/etc:/etc/ceph
       - /ceph/master/ganesha:/etc/ganesha
@@ -54,6 +56,7 @@ services:
     image: ceph/daemon
     domainname: ceph.wator.xyz
     hostname: node4
+    ipc: host
     volumes:
       - /ceph/master/etc:/etc/ceph
       - /ceph/master/mon:/var/lib/ceph
