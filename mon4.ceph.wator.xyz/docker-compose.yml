@@ -2,6 +2,7 @@ version: '3'
 services:
   mon:
     image: ceph/daemon
+    hostname: node4.ceph.wator.xyz
     volumes:
       - /ceph/master/etc:/etc/ceph
       - /ceph/master/ganesha:/etc/ganesha
@@ -26,6 +27,7 @@ services:
   
   mds:
     image: ceph/daemon
+    hostname: node4.ceph.wator.xyz
     volumes:
       - /ceph/master/etc:/etc/ceph
       - /ceph/master/ganesha:/etc/ganesha
@@ -48,6 +50,7 @@ services:
 
   mgr:
     image: ceph/daemon
+    hostname: node4.ceph.wator.xyz
     volumes:
       - /ceph/master/etc:/etc/ceph
       - /ceph/master/mon:/var/lib/ceph
