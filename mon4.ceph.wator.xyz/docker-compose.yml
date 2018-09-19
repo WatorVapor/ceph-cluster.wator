@@ -68,7 +68,5 @@ networks:
   outside:
     external:
       name: "host"
-      aliases:
-        - node4.ceph.wator.xyz
 
 
