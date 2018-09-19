@@ -13,7 +13,6 @@ services:
       - CEPH_PUBLIC_NETWORK=2400:2412:13e0:9d00::/64
       - CEPH_CLUSTER_NETWORK=2400:2412:13e0:9d00::/64
     command: mon
-    restart: 'always'
     networks:
       - outside
     deploy:
@@ -36,7 +35,6 @@ services:
       - MDS_NAME=mds.node4.ceph.wator.xyz
       - CEPHFS_CREATE=1
     command: mds
-    restart: 'always'
     networks:
       - outside
     deploy:
@@ -55,7 +53,6 @@ services:
       - /ceph/master/mon:/var/lib/ceph
       - /ceph/master/log:/var/log/ceph/
     command: mgr
-    restart: 'always'    
     networks:
       - outside
     deploy:
