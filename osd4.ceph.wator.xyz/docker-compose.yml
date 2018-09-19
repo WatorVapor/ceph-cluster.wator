@@ -1,44 +1,73 @@
-version: '2'
+version: '3'
 services:
-  osd1.node3.ceph.wator.xyz:
+  osd1:
     image: ceph/daemon
-    network_mode: "host"
+    hostname: node4.ceph.wator.xyz
     volumes:
-      - /ceph/conf/etc:/etc/ceph
-      - /ceph/conf/ganesha:/etc/ganesha
-      - /ceph/storage1/mon:/var/lib/ceph
-      - /ceph/storage1/log:/var/log/ceph/
+      - /ceph/master/etc:/etc/ceph
+      - /ceph/master/mon:/var/lib/ceph
       - /ceph/storage1/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
-      - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
+      - HOSTNAME=[2400:2412:13e0:9d00:8639:beff:fe67:dcc9]
     command: osd
-    restart: 'always'
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.1'
+          memory: 256M    
 
-  osd2.node3.ceph.wator.xyz:
+  osd2:
     image: ceph/daemon
-    network_mode: "host"
+    hostname: node4.ceph.wator.xyz
     volumes:
-      - /ceph/conf/etc:/etc/ceph
-      - /ceph/storage1/mon:/var/lib/ceph
-      - /ceph/storage1/log:/var/log/ceph/
+      - /ceph/master/etc:/etc/ceph
+      - /ceph/master/mon:/var/lib/ceph
       - /ceph/storage2/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
-      - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
+      - HOSTNAME=[2400:2412:13e0:9d00:8639:beff:fe67:dcc9]
     command: osd
-    restart: 'always'
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.1'
+          memory: 256M    
  
   osd3.node3.ceph.wator.xyz:
     image: ceph/daemon
-    network_mode: "host"
+    hostname: node4.ceph.wator.xyz
     volumes:
-      - /ceph/conf/etc:/etc/ceph
-      - /ceph/storage1/mon:/var/lib/ceph
-      - /ceph/storage1/log:/var/log/ceph/
-      - /ceph/storage3/osd:/var/lib/ceph/osd
+      - /ceph/master/etc:/etc/ceph
+      - /ceph/master/mon:/var/lib/ceph
+      - /ceph/storage2/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
-      - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
+      - HOSTNAME=[2400:2412:13e0:9d00:8639:beff:fe67:dcc9]
     command: osd
-    restart: 'always'
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.1'
+          memory: 256M    
+
+networks:
+  outside:
+    external:
+      name: "host"
+
