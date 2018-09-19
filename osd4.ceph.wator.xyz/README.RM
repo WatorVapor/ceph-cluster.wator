@@ -1,0 +1,24 @@
+7、为此osd节点创建一个crush map
+
+ceph osd crush add-bucket node1 host
+
+8、把node1 bucket 移到 root bucket下
+
+ceph osd crush move node1 root=default
+
+9、给node1 bucket 增加一个设备
+
+ceph osd crush add osd.0 1.0 host=node1
+
+
+
+
+ceph osd crush add-bucket node3.ceph.wator.xyz host
+ceph osd crush move node3.ceph.wator.xyz root=default
+
+ceph osd crush add osd.1 1.0 host=node3.ceph.wator.xyz
+
+ceph osd crush add osd.2 1.0 host=node3.ceph.wator.xyz
+ceph osd crush add osd.3 1.0 host=node3.ceph.wator.xyz
+
+ceph osd crush rm osd.1 ubuntu-ceph-3

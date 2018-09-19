@@ -1,0 +1,43 @@
+version: '2'
+services:
+  mon.ceph.wator.xyz:
+    image: ceph/daemon
+    network_mode: "host"
+    volumes:
+      - /ceph/conf/etc:/etc/ceph
+      - /ceph/conf/ganesha:/etc/ganesha
+      - /ceph/storage1/mon:/var/lib/ceph
+      - /ceph/storage1/log:/var/log/ceph
+    environment:
+      - MON_NAME=node3.ceph.wator.xyz
+      - MON_IP=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
+      - CEPH_PUBLIC_NETWORK=2400:2412:13e0:9d00::/64
+      - CEPH_CLUSTER_NETWORK=2400:2412:13e0:9d00::/64
+    command: mon
+    restart: 'always'
+  
+  mds3.node3.ceph.wator.xyz:
+    image: ceph/daemon
+    network_mode: "host"
+    volumes:
+      - /ceph/conf/etc:/etc/ceph
+      - /ceph/conf/ganesha:/etc/ganesha
+      - /ceph/storage1/mon:/var/lib/ceph
+      - /ceph/storage1/log:/var/log/ceph/
+    environment:
+      - MDS_NAME=mds3.node3.ceph.wator.xyz
+      - CEPHFS_CREATE=1
+    command: mds
+    restart: 'always'
+
+  mgr.node3.ceph.wator.xyz:
+    image: ceph/daemon
+    network_mode: "host"
+    volumes:
+      - /ceph/conf/etc:/etc/ceph
+      - /ceph/storage1/mon:/var/lib/ceph
+      - /ceph/storage1/log:/var/log/ceph/
+    command: mgr
+    restart: 'always'    
+    
+    
