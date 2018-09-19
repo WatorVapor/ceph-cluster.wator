@@ -5,7 +5,6 @@ services:
     hostname: node4.ceph.wator.xyz
     volumes:
       - /ceph/master/etc:/etc/ceph
-      - /ceph/master/ganesha:/etc/ganesha
       - /ceph/master/mon:/var/lib/ceph
       - /ceph/master/log:/var/log/ceph
     environment:
@@ -23,50 +22,7 @@ services:
           memory: 1G
         reservations:
           cpus: '0.1'
-          memory: 256M
-  
-  mds:
-    image: ceph/daemon
-    hostname: node4.ceph.wator.xyz
-    volumes:
-      - /ceph/master/etc:/etc/ceph
-      - /ceph/master/ganesha:/etc/ganesha
-      - /ceph/master/mon:/var/lib/ceph
-      - /ceph/master/log:/var/log/ceph/
-    environment:
-      - MDS_NAME=mds.node4.ceph.wator.xyz
-      - CEPHFS_CREATE=1
-    command: mds
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 1G
-        reservations:
-          cpus: '0.1'
-          memory: 256M
-
-  mgr:
-    image: ceph/daemon
-    hostname: node4.ceph.wator.xyz
-    volumes:
-      - /ceph/master/etc:/etc/ceph
-      - /ceph/master/mon:/var/lib/ceph
-      - /ceph/master/log:/var/log/ceph/
-    command: mgr
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 1G
-        reservations:
-          cpus: '0.1'
-          memory: 256M
-    
+          memory: 256M    
 networks:
   outside:
     external:
