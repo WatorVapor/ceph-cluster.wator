@@ -2,9 +2,7 @@ version: '3'
 services:
   mon.ceph.wator.xyz:
     image: ceph/daemon
-    domainname: ceph.wator.xyz
-    hostname: node4
-    ipc: host
+    hostname: "node4.ceph.wator.xyz"
     volumes:
       - /ceph/master/etc:/etc/ceph
       - /ceph/master/ganesha:/etc/ganesha
@@ -29,9 +27,7 @@ services:
   
   mds.node4.ceph.wator.xyz:
     image: ceph/daemon
-    domainname: ceph.wator.xyz
-    hostname: node4
-    ipc: host
+    hostname: "node4.ceph.wator.xyz"
     volumes:
       - /ceph/master/etc:/etc/ceph
       - /ceph/master/ganesha:/etc/ganesha
@@ -54,9 +50,7 @@ services:
 
   mgr.node4.ceph.wator.xyz:
     image: ceph/daemon
-    domainname: ceph.wator.xyz
-    hostname: node4
-    ipc: host
+    hostname: "node4.ceph.wator.xyz"
     volumes:
       - /ceph/master/etc:/etc/ceph
       - /ceph/master/mon:/var/lib/ceph
