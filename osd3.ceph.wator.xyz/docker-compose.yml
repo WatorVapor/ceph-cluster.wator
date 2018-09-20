@@ -1,8 +1,8 @@
-version: '2'
+version: '3'
 services:
-  osd1.node3.ceph.wator.xyz:
+  osd1:
     image: ceph/daemon
-    network_mode: "host"
+    hostname: node3.ceph.wator.xyz
     volumes:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/conf/ganesha:/etc/ganesha
@@ -13,11 +13,20 @@ services:
       - OSD_TYPE=directory
       - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
     command: osd
-    restart: 'always'
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.1'
+          memory: 256M    
 
-  osd2.node3.ceph.wator.xyz:
+  osd2:
     image: ceph/daemon
-    network_mode: "host"
+    hostname: node3.ceph.wator.xyz
     volumes:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/storage1/mon:/var/lib/ceph
@@ -27,11 +36,20 @@ services:
       - OSD_TYPE=directory
       - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
     command: osd
-    restart: 'always'
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.1'
+          memory: 256M    
  
-  osd3.node3.ceph.wator.xyz:
+  osd3:
     image: ceph/daemon
-    network_mode: "host"
+    hostname: node3.ceph.wator.xyz
     volumes:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/storage1/mon:/var/lib/ceph
@@ -41,4 +59,17 @@ services:
       - OSD_TYPE=directory
       - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
     command: osd
-    restart: 'always'
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.1'
+          memory: 256M    
+networks:
+  outside:
+    external:
+      name: "host"
