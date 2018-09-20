@@ -1,8 +1,8 @@
-version: '2'
+version: '3'
 services:
-  mon.ceph.wator.xyz:
+  mon:
     image: ceph/daemon
-    network_mode: "host"
+    hostname: node3.ceph.wator.xyz
     volumes:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/conf/ganesha:/etc/ganesha
@@ -14,11 +14,19 @@ services:
       - CEPH_PUBLIC_NETWORK=2400:2412:13e0:9d00::/64
       - CEPH_CLUSTER_NETWORK=2400:2412:13e0:9d00::/64
     command: mon
-    restart: 'always'
-  
-  mds3.node3.ceph.wator.xyz:
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.1'
+          memory: 256M    
+  mds3:
     image: ceph/daemon
-    network_mode: "host"
+    hostname: node3.ceph.wator.xyz
     volumes:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/conf/ganesha:/etc/ganesha
@@ -28,16 +36,39 @@ services:
       - MDS_NAME=mds3.node3.ceph.wator.xyz
       - CEPHFS_CREATE=1
     command: mds
-    restart: 'always'
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.1'
+          memory: 256M    
 
-  mgr.node3.ceph.wator.xyz:
+  mgr:
     image: ceph/daemon
-    network_mode: "host"
+    hostname: node3.ceph.wator.xyz
     volumes:
       - /ceph/conf/etc:/etc/ceph
       - /ceph/storage1/mon:/var/lib/ceph
       - /ceph/storage1/log:/var/log/ceph/
     command: mgr
-    restart: 'always'    
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.1'
+          memory: 256M    
     
-    
+networks:
+  outside:
+    external:
+      name: "host"
+
+
