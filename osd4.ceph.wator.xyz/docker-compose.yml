@@ -10,7 +10,7 @@ services:
       - /ceph/storage1/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
-      - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
+      - HOSTNAME=node4.ceph.wator.xyz
     command: osd
     networks:
       - outside
@@ -33,7 +33,7 @@ services:
       - /ceph/storage2/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
-      - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
+      - HOSTNAME=node4.ceph.wator.xyz
     command: osd
     networks:
       - outside
@@ -56,7 +56,7 @@ services:
       - /ceph/storage3/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
-      - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
+      - HOSTNAME=node4.ceph.wator.xyz
     command: osd
     networks:
       - outside
