@@ -7,10 +7,10 @@ services:
       - /ceph/master/deploy/etc:/etc/ceph
       - /ceph/master/deploy/ceph:/var/lib/ceph
       - /ceph/master/deploy/log:/var/log/ceph
-    environment:
+      - /ceph/storage1/osd:/var/lib/ceph/osd
+  environment:
       - HOSTNAME=node4.ceph.wator.xyz
-      - OSD_TYPE=disk
-      - OSD_DEVICE=/dev/sda6
+      - OSD_TYPE=directory
     command: osd
     networks:
       - outside
@@ -30,10 +30,10 @@ services:
       - /ceph/master/deploy/etc:/etc/ceph
       - /ceph/master/deploy/ceph:/var/lib/ceph
       - /ceph/master/deploy/log:/var/log/ceph
+      - /ceph/storage2/osd:/var/lib/ceph/osd
     environment:
       - HOSTNAME=node4.ceph.wator.xyz
-      - OSD_TYPE=disk
-      - OSD_DEVICE=/dev/sda7
+      - OSD_TYPE=directory
     command: osd
     networks:
       - outside
@@ -53,10 +53,10 @@ services:
       - /ceph/master/deploy/etc:/etc/ceph
       - /ceph/master/deploy/ceph:/var/lib/ceph
       - /ceph/master/deploy/log:/var/log/ceph
+      - /ceph/storage3/osd:/var/lib/ceph/osd
     environment:
       - HOSTNAME=node4.ceph.wator.xyz
-      - OSD_TYPE=disk
-      - OSD_DEVICE=/dev/sda8
+      - OSD_TYPE=directory
     command: osd
     networks:
       - outside
