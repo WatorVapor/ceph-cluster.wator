@@ -4,9 +4,9 @@ services:
     image: ceph/daemon
     hostname: node4.ceph.wator.xyz
     volumes:
-      - /ceph/master/etc:/etc/ceph
-      - /ceph/master/mon:/var/lib/ceph
-      - /ceph/master/log:/var/log/ceph
+      - /ceph/master/deploy/etc:/etc/ceph
+      - /ceph/master/deploy/ceph:/var/lib/ceph
+      - /ceph/master/deploy/log:/var/log
     environment:
       - MON_NAME=node4.ceph.wator.xyz
       - MON_IP=[2400:2412:13e0:9d00:8639:beff:fe67:dcc9]
