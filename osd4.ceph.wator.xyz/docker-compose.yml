@@ -4,10 +4,10 @@ services:
     image: ceph/daemon
     hostname: node4.ceph.wator.xyz
     volumes:
-      - /ceph/storage1/osd:/var/lib/ceph/osd
       - /ceph/master/deploy/etc:/etc/ceph
       - /ceph/master/deploy/ceph:/var/lib/ceph
       - /ceph/master/deploy/log:/var/log/ceph
+      - /ceph/storage1/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory_single
       - HOSTNAME=node4.ceph.wator.xyz
