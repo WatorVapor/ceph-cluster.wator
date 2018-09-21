@@ -4,10 +4,9 @@ services:
     image: ceph/daemon
     hostname: node3.ceph.wator.xyz
     volumes:
-      - /ceph/conf/etc:/etc/ceph
-      - /ceph/conf/ganesha:/etc/ganesha
-      - /ceph/storage1/mon:/var/lib/ceph
-      - /ceph/storage1/log:/var/log/ceph
+      - /ceph/master/deploy/etc:/etc/ceph
+      - /ceph/master/deploy/ceph:/var/lib/ceph
+      - /ceph/master/deploy/log:/var/log/ceph
     environment:
       - MON_NAME=node3.ceph.wator.xyz
       - MON_IP=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
@@ -28,12 +27,11 @@ services:
     image: ceph/daemon
     hostname: node3.ceph.wator.xyz
     volumes:
-      - /ceph/conf/etc:/etc/ceph
-      - /ceph/conf/ganesha:/etc/ganesha
-      - /ceph/storage1/mon:/var/lib/ceph
-      - /ceph/storage1/log:/var/log/ceph/
+      - /ceph/master/deploy/etc:/etc/ceph
+      - /ceph/master/deploy/ceph:/var/lib/ceph
+      - /ceph/master/deploy/log:/var/log/ceph
     environment:
-      - MDS_NAME=mds3.node3.ceph.wator.xyz
+      - MDS_NAME=node3.ceph.wator.xyz
       - CEPHFS_CREATE=1
     command: mds
     networks:
@@ -51,9 +49,9 @@ services:
     image: ceph/daemon
     hostname: node3.ceph.wator.xyz
     volumes:
-      - /ceph/conf/etc:/etc/ceph
-      - /ceph/storage1/mon:/var/lib/ceph
-      - /ceph/storage1/log:/var/log/ceph/
+      - /ceph/master/deploy/etc:/etc/ceph
+      - /ceph/master/deploy/ceph:/var/lib/ceph
+      - /ceph/master/deploy/log:/var/log/ceph
     command: mgr
     networks:
       - outside
