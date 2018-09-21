@@ -12,7 +12,7 @@ services:
       - OSD_FORCE_ZAP=1
       - OSD_TYPE=directory
       - HOSTNAME=node4.ceph.wator.xyz
-    command: osd
+    command: osd --no-mon-config
     networks:
       - outside
     deploy:
@@ -36,7 +36,7 @@ services:
       - OSD_FORCE_ZAP=1
       - OSD_TYPE=directory
       - HOSTNAME=node4.ceph.wator.xyz
-    command: osd
+    command: osd --no-mon-config
     networks:
       - outside
     deploy:
@@ -60,7 +60,7 @@ services:
       - OSD_FORCE_ZAP=1
       - OSD_TYPE=directory
       - HOSTNAME=node4.ceph.wator.xyz
-    command: osd
+    command: osd --no-mon-config
     networks:
       - outside
     deploy:
