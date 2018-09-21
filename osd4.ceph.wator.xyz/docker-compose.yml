@@ -10,7 +10,6 @@ services:
       - /ceph/storage1/osd:/var/lib/ceph/osd
   environment:
       - OSD_TYPE='directory'
-      - HOSTNAME='node4.ceph.wator.xyz'
     command: osd
     networks:
       - outside
