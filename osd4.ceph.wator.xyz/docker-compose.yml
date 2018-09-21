@@ -9,6 +9,7 @@ services:
       - /ceph/master/deploy/log:/var/log/ceph
       - /ceph/storage1/osd:/var/lib/ceph/osd
     environment:
+      - OSD_FORCE_ZAP=1
       - OSD_TYPE=directory
       - HOSTNAME=node4.ceph.wator.xyz
     command: osd
@@ -32,6 +33,7 @@ services:
       - /ceph/master/deploy/log:/var/log/ceph
       - /ceph/storage2/osd:/var/lib/ceph/osd
     environment:
+      - OSD_FORCE_ZAP=1
       - OSD_TYPE=directory
       - HOSTNAME=node4.ceph.wator.xyz
     command: osd
@@ -55,6 +57,7 @@ services:
       - /ceph/master/deploy/log:/var/log/ceph
       - /ceph/storage3/osd:/var/lib/ceph/osd
     environment:
+      - OSD_FORCE_ZAP=1
       - OSD_TYPE=directory
       - HOSTNAME=node4.ceph.wator.xyz
     command: osd
