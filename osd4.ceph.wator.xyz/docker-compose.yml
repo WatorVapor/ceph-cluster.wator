@@ -11,7 +11,7 @@ services:
     environment:
       - OSD_TYPE=directory
       - HOSTNAME=node4.ceph.wator.xyz
-    command: osd
+    command: osd_directory_single
     networks:
       - outside
     deploy:
@@ -34,7 +34,7 @@ services:
     environment:
       - OSD_TYPE=directory
       - HOSTNAME=node4.ceph.wator.xyz
-    command: osd
+    command: osd_directory_single
     networks:
       - outside
     deploy:
@@ -57,7 +57,7 @@ services:
     environment:
       - OSD_TYPE=directory
       - HOSTNAME=node4.ceph.wator.xyz
-    command: osd
+    command: osd_directory_single
     networks:
       - outside
     deploy:
