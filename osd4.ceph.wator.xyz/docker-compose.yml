@@ -8,7 +8,7 @@ services:
       - /ceph/master/deploy/ceph:/var/lib/ceph
       - /ceph/master/deploy/log:/var/log/ceph
       - /ceph/storage1/osd:/var/lib/ceph/osd
-  environment:
+    environment:
       - OSD_TYPE=directory
       - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
     command: osd
