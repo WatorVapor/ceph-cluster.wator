@@ -9,7 +9,7 @@ services:
       - /ceph/master/deploy/log:/var/log/ceph
       - /ceph/storage1/osd:/var/lib/ceph/osd
     environment:
-      - OSD_TYPE=directory_single
+      - OSD_TYPE=directory
       - HOSTNAME=node4.ceph.wator.xyz
     command: osd
     networks:
@@ -32,7 +32,7 @@ services:
       - /ceph/master/deploy/log:/var/log/ceph
       - /ceph/storage2/osd:/var/lib/ceph/osd
     environment:
-      - OSD_TYPE=directory_single
+      - OSD_TYPE=directory
       - HOSTNAME=node4.ceph.wator.xyz
     command: osd
     networks:
@@ -55,7 +55,7 @@ services:
       - /ceph/master/deploy/log:/var/log/ceph
       - /ceph/storage3/osd:/var/lib/ceph/osd
     environment:
-      - OSD_TYPE=directory_single
+      - OSD_TYPE=directory
       - HOSTNAME=node4.ceph.wator.xyz
     command: osd 
     networks:
