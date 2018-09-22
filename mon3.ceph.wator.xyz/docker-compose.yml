@@ -38,7 +38,6 @@ services:
       - /ceph/master/deploy/log:/var/log/ceph
     environment:
       - MDS_NAME=node3.ceph.wator.xyz
-      - CEPHFS_CREATE=1
     command: mds
     networks:
       - outside
