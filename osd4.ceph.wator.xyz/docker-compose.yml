@@ -3,7 +3,7 @@ services:
   osd1:
     image: ceph/daemon
     hostname: node4.ceph.wator.xyz
-    pid: "host"
+    pid: "container:<id>"
     extra_hosts:
       node3: 2400:2412:13e0:9d00:2ce:39ff:fece:132
       node4: 2400:2412:13e0:9d00:8639:beff:fe67:dcc9
