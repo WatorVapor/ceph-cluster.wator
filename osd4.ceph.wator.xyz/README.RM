@@ -18,9 +18,8 @@ ceph osd crush move node4.ceph.wator.xyz root=default
 
 
 
-ceph osd crush add osd.3 1.0 host=node4.ceph.wator.xyz
-
-ceph osd crush add osd.4 1.0 host=node4.ceph.wator.xyz
-ceph osd crush add osd.5 1.0 host=node4.ceph.wator.xyz
+ceph osd crush add osd.3 0.28 host=node4.ceph.wator.xyz
+ceph osd crush add osd.4 0.28 host=node4.ceph.wator.xyz
+ceph osd crush add osd.5 0.28 host=node4.ceph.wator.xyz
 
 ceph osd crush rm osd.3 node4
