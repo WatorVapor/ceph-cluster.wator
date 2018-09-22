@@ -3,6 +3,7 @@ services:
   osd1:
     image: ceph/daemon
     hostname: node3.ceph.wator.xyz
+    pid: "host"
     extra_hosts:
       node3: 2400:2412:13e0:9d00:2ce:39ff:fece:132
       node4: 2400:2412:13e0:9d00:8639:beff:fe67:dcc9
@@ -30,6 +31,7 @@ services:
   osd2:
     image: ceph/daemon
     hostname: node3.ceph.wator.xyz
+    pid: "host"
     extra_hosts:
       node3: 2400:2412:13e0:9d00:2ce:39ff:fece:132
       node4: 2400:2412:13e0:9d00:8639:beff:fe67:dcc9
@@ -57,6 +59,7 @@ services:
   osd3:
     image: ceph/daemon
     hostname: node3.ceph.wator.xyz
+    pid: "host"
     extra_hosts:
       node3: 2400:2412:13e0:9d00:2ce:39ff:fece:132
       node4: 2400:2412:13e0:9d00:8639:beff:fe67:dcc9
