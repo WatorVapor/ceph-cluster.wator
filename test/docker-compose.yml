@@ -8,14 +8,13 @@ services:
       node4: 2400:2412:13e0:9d00:8639:beff:fe67:dcc9
     volumes:
       - /etc/localtime:/etc/localtime
-      - /ceph/master/deploy/etc:/etc/ceph
-      - /ceph/master/deploy/ceph:/var/lib/ceph
-      - /ceph/master/deploy/log:/var/log/ceph
+      - ./etc:/etc/ceph
+      - ./ceph:/var/lib/ceph
+      - ./log:/var/log/ceph
     environment:
       - MON_NAME=node4.ceph.wator.xyz
       - MON_IP=[2400:2412:13e0:9d00:2ce:39ff:fece:132],[2400:2412:13e0:9d00:8639:beff:fe67:dcc9]
-      - CEPH_PUBLIC_NETWORK=2400:2412:13e0:9d00::/64
-      - CEPH_CLUSTER_NETWORK=2400:2412:13e0:9d00::/64
+      - NETWORK_AUTO_DETECT=6
     command: mon
     networks:
       - outside
