@@ -16,7 +16,7 @@ services:
       - /ceph/storage3/osd/ceph-2:/var/lib/ceph/osd/ceph-2
     environment:
       - OSD_TYPE=directory
-      - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
+      - HOSTNAME=node3.ceph.wator.xyz
     command: osd_directory
     networks:
       - outside
