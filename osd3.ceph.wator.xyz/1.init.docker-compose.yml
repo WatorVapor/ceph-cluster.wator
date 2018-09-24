@@ -1,6 +1,6 @@
 version: '3'
 services:
-  osd:
+  osd1:
     image: ceph/daemon
     hostname: node3.ceph.wator.xyz
     extra_hosts:
