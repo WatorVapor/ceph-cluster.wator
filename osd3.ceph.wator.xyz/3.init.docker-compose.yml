@@ -1,0 +1,34 @@
+version: '3'
+services:
+  osd:
+    image: ceph/daemon
+    hostname: node3.ceph.wator.xyz
+    extra_hosts:
+      node3: 2400:2412:13e0:9d00:2ce:39ff:fece:132
+      node4: 2400:2412:13e0:9d00:8639:beff:fe67:dcc9
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /ceph/master/deploy/etc:/etc/ceph
+      - /ceph/master/deploy/ceph:/var/lib/ceph
+      - /ceph/master/deploy/log:/var/log/ceph
+      - /ceph/storage1/osd/ceph-0:/var/lib/ceph/osd/ceph-0
+      - /ceph/storage2/osd/ceph-1:/var/lib/ceph/osd/ceph-1
+      - /ceph/storage3/osd/ceph-2:/var/lib/ceph/osd/ceph-2
+    environment:
+      - OSD_TYPE=directory
+      - HOSTNAME=node3.ceph.wator.xyz
+    command: osd_directory
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '3.0'
+          memory: 3G
+        reservations:
+          cpus: '0.1'
+          memory: 256M    
+networks:
+  outside:
+    external:
+      name: "host"
