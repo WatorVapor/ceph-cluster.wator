@@ -1,64 +1,8 @@
 version: '3'
 services:
-  osd1:
-    image: ceph/daemon
-    hostname: node3.ceph.wator.xyz
-    pid: "host"
-    extra_hosts:
-      node3: 2400:2412:13e0:9d00:2ce:39ff:fece:132
-      node4: 2400:2412:13e0:9d00:8639:beff:fe67:dcc9
-    volumes:
-      - /etc/localtime:/etc/localtime
-      - /ceph/master/deploy/etc:/etc/ceph
-      - /ceph/master/deploy/ceph:/var/lib/ceph
-      - /ceph/master/deploy/log:/var/log/ceph
-      - /ceph/storage1/osd:/var/lib/ceph/osd
-    environment:
-      - OSD_TYPE=directory
-      - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
-    command: osd_directory
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 1G
-        reservations:
-          cpus: '0.1'
-          memory: 256M    
-
-  osd2:
-    image: ceph/daemon
-    hostname: node3.ceph.wator.xyz
-    pid: "host"
-    extra_hosts:
-      node3: 2400:2412:13e0:9d00:2ce:39ff:fece:132
-      node4: 2400:2412:13e0:9d00:8639:beff:fe67:dcc9
-    volumes:
-      - /etc/localtime:/etc/localtime
-      - /ceph/master/deploy/etc:/etc/ceph
-      - /ceph/master/deploy/ceph:/var/lib/ceph
-      - /ceph/master/deploy/log:/var/log/ceph
-      - /ceph/storage2/osd:/var/lib/ceph/osd
-    environment:
-      - OSD_TYPE=directory
-      - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
-    command: osd_directory
-    networks:
-      - outside
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 1G
-        reservations:
-          cpus: '0.1'
-          memory: 256M    
- 
   osd3:
     image: ceph/daemon
-    hostname: node3.ceph.wator.xyz
+    hostname: node4.ceph.wator.xyz
     pid: "host"
     extra_hosts:
       node3: 2400:2412:13e0:9d00:2ce:39ff:fece:132
@@ -71,7 +15,7 @@ services:
       - /ceph/storage3/osd:/var/lib/ceph/osd
     environment:
       - OSD_TYPE=directory
-      - HOSTNAME=[2400:2412:13e0:9d00:2ce:39ff:fece:132]
+      - HOSTNAME=node4.ceph.wator.xyz
     command: osd_directory
     networks:
       - outside
