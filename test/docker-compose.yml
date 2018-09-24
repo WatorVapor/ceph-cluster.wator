@@ -1,0 +1,33 @@
+version: '3'
+services:
+  mon:
+    image: ceph/daemon
+    hostname: node4.ceph.wator.xyz
+    extra_hosts:
+      node3: 2400:2412:13e0:9d00:2ce:39ff:fece:132
+      node4: 2400:2412:13e0:9d00:8639:beff:fe67:dcc9
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /ceph/master/deploy/etc:/etc/ceph
+      - /ceph/master/deploy/ceph:/var/lib/ceph
+      - /ceph/master/deploy/log:/var/log/ceph
+    environment:
+      - MON_NAME=node4.ceph.wator.xyz
+      - MON_IP=[2400:2412:13e0:9d00:2ce:39ff:fece:132],[2400:2412:13e0:9d00:8639:beff:fe67:dcc9]
+      - CEPH_PUBLIC_NETWORK=2400:2412:13e0:9d00::/64
+      - CEPH_CLUSTER_NETWORK=2400:2412:13e0:9d00::/64
+    command: mon
+    networks:
+      - outside
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.1'
+          memory: 256M    
+networks:
+  outside:
+    external:
+      name: "host"
